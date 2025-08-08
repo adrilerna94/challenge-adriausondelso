@@ -3,16 +3,8 @@
 ## Entrega 1
 Tabla con listado de productos. Columnas marca, model y año.
 
-```
-apivehicles = https://dealcar-challenge-api.vercel.app/api/vehicles
-```
-
 ## Entrega 2
 Filtros combinados para buscar por marca, modelo y año.
-
-```
-apifiltros = https://dealcar-challenge-api.vercel.app/api/filters 
-```
 
 ## A destacar
 - He podido realizar el challenge completo tratando de: 
@@ -21,6 +13,7 @@ apifiltros = https://dealcar-challenge-api.vercel.app/api/filters
   - Tipado en typescript
   - SOLID: Matizo la S. Si bien obviamente no he sido purista. Por ejemplo, Si os fijais por ejemplo en el service he tratado de que cada función tenga una única responsabilidad.
 - He tenido que informarme acerca de como tratar el select multiple cosa que realmente no había tenido la oportunidad de hacer.
+- He realizado todas las combinatorias posibles del select multiple (en total 8).
 
 ## Estructura de carpetas (App router): 
 
