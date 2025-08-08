@@ -11,4 +11,16 @@ type VehicleFilters = {
   years: number[];
 };
 
-export type {Vehicle, VehicleFilters};
+type FilterType =
+  | "all"
+  | "year"
+  | "model"
+  | "brand"
+  | "yearModel"
+  | "brandModel"
+  | "yearBrand"
+  | "yearBrandModel";
+
+type FilterTypeHandler = Record<FilterType, Vehicle[]>;
+
+export type {FilterType, FilterTypeHandler, Vehicle, VehicleFilters};
