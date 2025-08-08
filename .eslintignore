@@ -1,0 +1,19 @@
+# Dependencias
+node_modules/
+
+# Salida de compilación
+.next/
+out/
+build/
+dist/
+
+# Configuraciones del entorno
+.vscode/
+.idea/
+
+# Resultados de pruebas o herramientas
+coverage/
+
+# Archivos estáticos o temporales opcionales
+public/
+
