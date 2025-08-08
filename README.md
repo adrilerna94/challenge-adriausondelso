@@ -37,4 +37,4 @@ Solo hay un pequeño bloque de código donde usé ayuda de una IA, y lo tengo bi
 
 
 > ⚠️ **IMPORTANT!**
-> Valoraría que le pudierais echar un ojo a la prueba por el esfuerzo dedicado**
+ _Valoraría que le pudierais echar un ojo a la prueba por el esfuerzo dedicado_
