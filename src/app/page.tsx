@@ -3,7 +3,7 @@
 import React from "react";
 
 import "./globals.css"; // Asegúrate de tener este archivo si usas CSS global
-import {getAllFiltersData, getMultipleFiltersVehicle} from "@/services/vehicleService";
+import {getAllFiltersData, getMultipleFiltersVehicle} from "@/services/vehicleFilterService";
 import {VehicleList} from "@/components/VehicleList";
 import {Filter} from "@/components/Filter";
 
