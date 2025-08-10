@@ -1,4 +1,10 @@
-import {FilterType, FilterTypeHandler, Vehicle, VehicleFilters} from "@/types";
+import type {
+  FilterConditions,
+  FilterType,
+  FilterTypeHandler,
+  Vehicle,
+  VehicleFilters,
+} from "@/types";
 
 const API_VEHICLES = process.env.NEXT_PUBLIC_API_VEHICLES as string;
 const API_FILTERS = process.env.NEXT_PUBLIC_API_FILTRES as string;
@@ -111,7 +117,7 @@ export const getVehiclesByBrandAndYearAndModel = async (
 };
 
 export const getMultipleFiltersVehicle = async (year = "", model = "", brand = "") => {
-  const filterConditions = {
+  const filterConditions: FilterConditions = {
     all: year === "" && model === "" && brand === "",
     year: year !== "" && model === "" && brand === "",
     model: year === "" && model !== "" && brand === "",
@@ -123,21 +129,21 @@ export const getMultipleFiltersVehicle = async (year = "", model = "", brand = "
   };
 
   const filterTypeHandler: FilterTypeHandler = {
-    all: await getAllVehicles(),
-    year: await getVehiclesByYear(year),
-    model: await getVehiclesByModel(model),
-    brand: await getVehiclesByBrand(brand),
-    yearModel: await getVehiclesByYearAndModel(year, model),
-    brandModel: await getVehiclesByBrandAndModel(brand, model),
-    yearBrand: await getVehiclesByBrandAndYear(brand, year),
-    yearBrandModel: await getVehiclesByBrandAndYearAndModel(brand, year, model),
+    all: () => getAllVehicles(),
+    year: () => getVehiclesByYear(year),
+    model: () => getVehiclesByModel(model),
+    brand: () => getVehiclesByBrand(brand),
+    yearModel: () => getVehiclesByYearAndModel(year, model),
+    brandModel: () => getVehiclesByBrandAndModel(brand, model),
+    yearBrand: () => getVehiclesByBrandAndYear(brand, year),
+    yearBrandModel: () => getVehiclesByBrandAndYearAndModel(brand, year, model),
   };
 
   const conditionMatch = Object.entries(filterConditions).find(([_, value]) => {
     return value === true;
   })?.[0] as FilterType;
 
-  const vehicles = filterTypeHandler[conditionMatch];
+  const vehicles = await filterTypeHandler[conditionMatch]();
 
   return vehicles as Vehicle[];
 };

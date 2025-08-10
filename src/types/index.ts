@@ -21,6 +21,12 @@ type FilterType =
   | "yearBrand"
   | "yearBrandModel";
 
-type FilterTypeHandler = Record<FilterType, Vehicle[]>;
+type FilterConditions = {
+  [K in FilterType]: boolean;
+};
 
-export type {FilterType, FilterTypeHandler, Vehicle, VehicleFilters};
+type FilterTypeHandler = {
+  [K in FilterType]: () => Promise<Vehicle[]>;
+};
+
+export type {FilterType, FilterConditions, FilterTypeHandler, Vehicle, VehicleFilters};
